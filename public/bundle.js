@@ -24917,17 +24917,20 @@
 	var Nav = __webpack_require__(224);
 
 	var Main = function Main(props) {
-	  return React.createElement(
-	    'div',
-	    null,
-	    React.createElement(Nav, null),
-	    React.createElement(
-	      'h2',
-	      null,
-	      'Main Component'
-	    ),
-	    props.children
-	  );
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(Nav, null),
+			React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'div',
+					{ className: 'columns medium-6 large-6 small-centered' },
+					props.children
+				)
+			)
+		);
 	};
 
 	module.exports = Main;
@@ -25106,7 +25109,7 @@
 				React.createElement(
 					'h1',
 					{ className: 'text-center page-title' },
-					'Get WEather'
+					'Get Weather'
 				),
 				React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 				renderMessage(),
@@ -26793,23 +26796,48 @@
 /* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(166),
+	    Link = _require.Link;
+
 	var Examples = function Examples(props) {
 		return React.createElement(
-			"div",
+			'div',
 			null,
 			React.createElement(
-				"h3",
-				{ className: "page-title text-center" },
-				"Examples"
+				'h1',
+				{ className: 'page-title text-center' },
+				'Examples'
 			),
 			React.createElement(
-				"p",
-				{ className: "text-center" },
-				"Welcome to examples page!"
+				'p',
+				null,
+				'Here are a few example locations to try out: '
+			),
+			React.createElement(
+				'ol',
+				null,
+				React.createElement(
+					'li',
+					null,
+					React.createElement(
+						Link,
+						{ to: '/?location=Philadelphia' },
+						' Philadelphia,PA'
+					)
+				),
+				React.createElement(
+					'li',
+					null,
+					React.createElement(
+						Link,
+						{ to: '/?location=Rio,Brazil' },
+						'Rio,Brazil'
+					)
+				)
 			)
 		);
 	};
